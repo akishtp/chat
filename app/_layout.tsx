@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import React, { useEffect } from "react";
 import { Slot, useRouter, useSegments } from "expo-router";
 import { AuthContextProvider, useAuth } from "../context/authContext";
@@ -15,11 +15,15 @@ const MainLayout = () => {
     if (isAuthenticated && !inApp) {
       router.replace("home");
     } else if (isAuthenticated == false) {
-      router.replace("Login");
+      router.replace("login");
     }
   }, [isAuthenticated]);
 
-  return <Slot />;
+  return (
+    <SafeAreaProvider>
+      <Slot />
+    </SafeAreaProvider>
+  );
 };
 
 export default function RootLayout() {
