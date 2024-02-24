@@ -19,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
       if (user) {
         setIsAuthenticated(true);
         setUser(user);
-        updateUserData(user.uid);
+        updateUserData(user);
       } else {
         setIsAuthenticated(false);
         setUser(null);
@@ -28,8 +28,8 @@ export const AuthContextProvider = ({ children }) => {
     return unsub;
   }, []);
 
-  const updateUserData = async (uid) => {
-    const docRef = doc(db, "users", uid);
+  const updateUserData = async (user) => {
+    const docRef = doc(db, "users", user.uid);
 
     const docSnap = await getDoc(docRef);
 

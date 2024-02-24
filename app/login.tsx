@@ -15,7 +15,7 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Octicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import Loading from "../compoennts/Loading";
+import Loading from "../components/Loading";
 import { useAuth } from "../context/authContext";
 
 export default function Login() {
