@@ -20,7 +20,7 @@ const MainLayout = () => {
   }, [isAuthenticated]);
 
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider className="bg-neutral-950">
       <Slot />
     </SafeAreaProvider>
   );
