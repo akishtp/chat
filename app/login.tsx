@@ -41,26 +41,25 @@ export default function Login() {
             Login
           </Text>
           <View className="flex-1"></View>
-          <View className="flex-1 justify-center gap-y-2">
+          <View className="gap-y-2">
             <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
-              <Octicons name="mail" size={hp(2.7)} color="#d4d4d4" />
+              <Octicons name="mail" size={hp(2.7)} color="#a3a3a3" />
               <TextInput
                 onChangeText={(value) => (emailRef.current = value)}
                 style={{ fontSize: hp(2) }}
                 className="flex-1 font-semibold text-neutral-700 ml-4"
-                placeholder="Enter your mail"
-                placeholderTextColor="#d4d4d4"
-                autoFocus={true}
+                placeholder="mail"
+                placeholderTextColor="#a3a3a3"
               />
             </View>
             <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
-              <Octicons name="lock" size={hp(2.7)} color="#d4d4d4" />
+              <Octicons name="lock" size={hp(2.7)} color="#a3a3a3" />
               <TextInput
                 onChangeText={(value) => (passwordRef.current = value)}
                 style={{ fontSize: hp(2) }}
                 className="flex-1 font-semibold text-neutral-100 ml-4"
                 placeholder="password"
-                placeholderTextColor="#d4d4d4"
+                placeholderTextColor="#a3a3a3"
                 secureTextEntry
               />
             </View>

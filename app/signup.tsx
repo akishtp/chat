@@ -24,9 +24,15 @@ export default function Signup() {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const usernameRef = useRef("");
+  const profileRef = useRef("");
 
   const handleSignup = async () => {
-    if (!emailRef.current || !passwordRef.current || !usernameRef) {
+    if (
+      !emailRef.current ||
+      !passwordRef.current ||
+      !usernameRef.current ||
+      !profileRef.current
+    ) {
       Alert.alert("Signup", "Please fill all fields");
     }
   };
@@ -42,27 +48,47 @@ export default function Signup() {
             Signup
           </Text>
           <View className="flex-1"></View>
-          <View className="flex-1 justify-center gap-y-2">
+          <View className="gap-y-2">
             <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
-              <Octicons name="mail" size={hp(2.7)} color="#d4d4d4" />
+              <Octicons name="person" size={hp(2.7)} color="#a3a3a3" />
+              <TextInput
+                onChangeText={(value) => (usernameRef.current = value)}
+                style={{ fontSize: hp(2) }}
+                className="flex-1 font-semibold text-neutral-700 ml-4"
+                placeholder="username"
+                placeholderTextColor="#a3a3a3"
+              />
+            </View>
+            <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
+              <Octicons name="mail" size={hp(2.7)} color="#a3a3a3" />
               <TextInput
                 onChangeText={(value) => (emailRef.current = value)}
                 style={{ fontSize: hp(2) }}
                 className="flex-1 font-semibold text-neutral-700 ml-4"
-                placeholder="Enter your mail"
-                placeholderTextColor="#d4d4d4"
+                placeholder="mail"
+                placeholderTextColor="#a3a3a3"
                 autoFocus={true}
               />
             </View>
             <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
-              <Octicons name="lock" size={hp(2.7)} color="#d4d4d4" />
+              <Octicons name="lock" size={hp(2.7)} color="#a3a3a3" />
               <TextInput
                 onChangeText={(value) => (passwordRef.current = value)}
                 style={{ fontSize: hp(2) }}
                 className="flex-1 font-semibold text-neutral-100 ml-4"
                 placeholder="password"
-                placeholderTextColor="#d4d4d4"
+                placeholderTextColor="#a3a3a3"
                 secureTextEntry
+              />
+            </View>
+            <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
+              <Octicons name="image" size={hp(2.7)} color="#a3a3a3" />
+              <TextInput
+                onChangeText={(value) => (profileRef.current = value)}
+                style={{ fontSize: hp(2) }}
+                className="flex-1 font-semibold text-neutral-100 ml-4"
+                placeholder="Image Url"
+                placeholderTextColor="#a3a3a3"
               />
             </View>
             <View>
