@@ -16,10 +16,10 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
-      console.log("got user: ", user);
       if (user) {
         setIsAuthenticated(true);
         setUser(user);
+        updateUserData(user.uid);
       } else {
         setIsAuthenticated(false);
         setUser(null);
@@ -28,9 +28,34 @@ export const AuthContextProvider = ({ children }) => {
     return unsub;
   }, []);
 
+  const updateUserData = async (uid) => {
+    const docRef = doc(db, "users", uid);
+
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      let data = docSnap.data();
+      setUser({
+        ...user,
+        username: data.username,
+        profileUrl: data.profileUrl,
+        uid: data.uid,
+      });
+    }
+  };
+
   const login = async (email, password) => {
     try {
-    } catch (error) {}
+      const response = await signInWithEmailAndPassword(auth, email, password);
+
+      return { success: true };
+    } catch (error) {
+      let message = error.message;
+      if (message.includes("(auth/invalid-email)")) message = "Invalid Email";
+      if (message.includes("(auth/invalid-credential)"))
+        message = "Email and passwords do not match";
+      return { success: false, message };
+    }
   };
 
   const logout = async () => {
@@ -49,20 +74,21 @@ export const AuthContextProvider = ({ children }) => {
         email,
         password
       );
-      console.log(response.user);
-      // setUser(response.user);
-      // setIsAuthenticated(true);
 
       await setDoc(doc(db, "users", response.user.uid), {
         username,
         profileUrl,
-        userId: response.user.uid,
+        uid: response.user.uid,
       });
 
       return { success: true, data: response.user };
     } catch (error) {
       let message = error.message;
       if (message.includes("(auth/invalid-email)")) message = "Invalid Email";
+      if (message.includes("(auth/email-already-in-use)"))
+        message = "User already registered with email. Try loggin in.";
+      if (message.includes("(auth/weak-password)"))
+        message = "Choose a longer password";
       return { success: false, message };
     }
   };

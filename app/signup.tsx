@@ -37,6 +37,7 @@ export default function Signup() {
       !profileRef.current
     ) {
       Alert.alert("Signup", "Please fill all fields");
+      return;
     }
     setLoading(true);
 
@@ -48,8 +49,6 @@ export default function Signup() {
     );
 
     setLoading(false);
-
-    console.log("result kitti", response);
 
     if (!response.success) {
       Alert.alert("Signup", response.message);
@@ -130,7 +129,7 @@ export default function Signup() {
             </View>
             <Pressable
               className="flex-row"
-              onPress={() => router.push("signup")}
+              onPress={() => router.push("login")}
             >
               <Text
                 className="text-right text-neutral-300 font-bold"

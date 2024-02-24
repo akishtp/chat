@@ -3,11 +3,12 @@ import React from "react";
 import { useAuth } from "../../context/authContext";
 
 export default function Home() {
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const handleLogout = async () => {
-    console.log("pressed");
     await logout();
   };
+  console.log(user);
+
   return (
     <View>
       <Text>Home</Text>

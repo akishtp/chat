@@ -16,10 +16,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Octicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import Loading from "../compoennts/Loading";
+import { useAuth } from "../context/authContext";
 
 export default function Login() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+  const { login } = useAuth();
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -27,6 +30,13 @@ export default function Login() {
   const handleLogin = async () => {
     if (!emailRef.current || !passwordRef.current) {
       Alert.alert("Login", "Please fill all fields");
+      return;
+    }
+    setLoading(true);
+    let response = await login(emailRef.current, passwordRef.current);
+    setLoading(false);
+    if (!response.success) {
+      Alert.alert("Signup", response.message);
     }
   };
   return (
