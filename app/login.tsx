@@ -47,7 +47,7 @@ export default function Login() {
               <TextInput
                 onChangeText={(value) => (emailRef.current = value)}
                 style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-700 ml-4"
+                className="flex-1 font-semibold text-neutral-200 ml-4"
                 placeholder="mail"
                 placeholderTextColor="#a3a3a3"
               />
@@ -57,7 +57,7 @@ export default function Login() {
               <TextInput
                 onChangeText={(value) => (passwordRef.current = value)}
                 style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-100 ml-4"
+                className="flex-1 font-semibold text-neutral-200 ml-4"
                 placeholder="password"
                 placeholderTextColor="#a3a3a3"
                 secureTextEntry

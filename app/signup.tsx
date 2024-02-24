@@ -73,7 +73,7 @@ export default function Signup() {
               <TextInput
                 onChangeText={(value) => (usernameRef.current = value)}
                 style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-700 ml-4"
+                className="flex-1 font-semibold text-neutral-200 ml-4"
                 placeholder="username"
                 placeholderTextColor="#a3a3a3"
               />
@@ -83,10 +83,9 @@ export default function Signup() {
               <TextInput
                 onChangeText={(value) => (emailRef.current = value)}
                 style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-700 ml-4"
+                className="flex-1 font-semibold text-neutral-200 ml-4"
                 placeholder="mail"
                 placeholderTextColor="#a3a3a3"
-                autoFocus={true}
               />
             </View>
             <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
@@ -94,7 +93,7 @@ export default function Signup() {
               <TextInput
                 onChangeText={(value) => (passwordRef.current = value)}
                 style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-100 ml-4"
+                className="flex-1 font-semibold text-neutral-200 ml-4"
                 placeholder="password"
                 placeholderTextColor="#a3a3a3"
                 secureTextEntry
@@ -105,7 +104,7 @@ export default function Signup() {
               <TextInput
                 onChangeText={(value) => (profileRef.current = value)}
                 style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-100 ml-4"
+                className="flex-1 font-semibold text-neutral-200 ml-4"
                 placeholder="Image Url"
                 placeholderTextColor="#a3a3a3"
               />

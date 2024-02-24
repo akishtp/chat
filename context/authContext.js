@@ -3,9 +3,10 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { auth } from "../firebaseConfig";
+import { auth, db } from "../firebaseConfig";
 
 export const AuthContext = createContext();
 
@@ -15,6 +16,7 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
+      console.log("got user: ", user);
       if (user) {
         setIsAuthenticated(true);
         setUser(user);
@@ -33,7 +35,11 @@ export const AuthContextProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-    } catch (error) {}
+      await signOut(auth);
+      return { success: true };
+    } catch (error) {
+      return { success: false, message: error.message };
+    }
   };
 
   const signup = async (email, password, username, profileUrl) => {
@@ -55,7 +61,9 @@ export const AuthContextProvider = ({ children }) => {
 
       return { success: true, data: response.user };
     } catch (error) {
-      return { success: false, message: error.message };
+      let message = error.message;
+      if (message.includes("(auth/invalid-email)")) message = "Invalid Email";
+      return { success: false, message };
     }
   };
 
