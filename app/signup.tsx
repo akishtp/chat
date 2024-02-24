@@ -16,10 +16,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Octicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import Loading from "../compoennts/Loading";
+import { useAuth } from "../context/authContext";
 
 export default function Signup() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+  const { signup } = useAuth();
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -34,6 +37,22 @@ export default function Signup() {
       !profileRef.current
     ) {
       Alert.alert("Signup", "Please fill all fields");
+    }
+    setLoading(true);
+
+    let response = await signup(
+      emailRef.current,
+      passwordRef.current,
+      usernameRef.current,
+      profileRef.current
+    );
+
+    setLoading(false);
+
+    console.log("result kitti", response);
+
+    if (!response.success) {
+      Alert.alert("Signup", response.message);
     }
   };
   return (
