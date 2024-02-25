@@ -1,6 +1,9 @@
 # Chat
 
-- sockets.io?
-- react native(expo)
-- firebase?
-- nativewind
+## Statement
+
+## Solution
+
+## Next Steps
+
+# ...
