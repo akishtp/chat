@@ -14,7 +14,10 @@ const blurhash =
   "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
 
 export default function HomeHeader() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const handleLogout = async () => {
+    await logout();
+  };
 
   const handleProfile = () => {};
   return (
@@ -34,12 +37,27 @@ export default function HomeHeader() {
             transition={500}
           />
         </MenuTrigger>
-        <MenuOptions>
+        <MenuOptions
+          customStyles={{
+            optionsContainer: {
+              borderRadius: 4,
+              marginTop: hp(4),
+              width: wp(50),
+            },
+          }}
+        >
           <HeaderMenu
-            text="Hello"
+            text="Profile"
             action={handleProfile}
             value="null"
             icon={<Octicons name="person" size={hp(2.7)} color="#a3a3a3" />}
+          />
+          <View className="h-0.5 bg-neutral-200"></View>
+          <HeaderMenu
+            text="Logout"
+            action={handleLogout}
+            value="null"
+            icon={<Octicons name="sign-out" size={hp(2.7)} color="#a3a3a3" />}
           />
         </MenuOptions>
       </Menu>
