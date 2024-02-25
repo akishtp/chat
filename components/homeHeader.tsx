@@ -32,8 +32,8 @@ export default function HomeHeader() {
         <MenuTrigger>
           <Image
             style={{ height: hp(5), aspectRatio: 1, borderRadius: 100 }}
-            source={user?.profileUrl}
-            placeholder={"./assets/user.jpg"}
+            source={user?.profileUrl || require("../assets/user.jpg")}
+            placeholder={blurhash}
             transition={500}
           />
         </MenuTrigger>

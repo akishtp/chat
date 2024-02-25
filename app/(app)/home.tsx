@@ -7,7 +7,7 @@ import { getDocs, query, where } from "firebase/firestore";
 
 export default function Home() {
   const { user } = useAuth();
-  const [users, setUsers] = useState([1, 2, 3, 4]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     if (user.uid) {
