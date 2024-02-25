@@ -13,6 +13,7 @@ export default function _layout() {
             name="home"
             options={{
               header: () => <HomeHeader />,
+              headerShadowVisible: false,
             }}
           />
         </Stack>

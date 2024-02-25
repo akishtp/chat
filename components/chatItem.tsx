@@ -16,7 +16,7 @@ export default function ChatItem({ item, router, noBorder }) {
   };
   return (
     <TouchableOpacity
-      className={`flex-row ${noBorder ? "" : "border-b border-slate-700"}`}
+      className={`flex-row ${noBorder ? "" : "border-b border-neutral-300"}`}
       style={{
         marginHorizontal: wp(4),
         paddingVertical: hp(1),
@@ -32,17 +32,14 @@ export default function ChatItem({ item, router, noBorder }) {
       />
       <View className="flex-1 justify-center gap-y-2">
         <View className="flex-row justify-between items-center">
-          <Text
-            className="font-bold text-neutral-100"
-            style={{ fontSize: hp(2) }}
-          >
+          <Text className="font-bold text-black" style={{ fontSize: hp(2) }}>
             {item.username}
           </Text>
-          <View className="bg-slate-200 text-white rounded-full h-2.5 w-2.5" />
+          <View className="bg-slate-800 rounded-full h-2.5 w-2.5" />
         </View>
         <View className="flex-row justify-between">
-          <Text className="text-neutral-300">Last Message</Text>
-          <Text className="text-neutral-300">12:00pm</Text>
+          <Text className="text-neutral-600">Last Message</Text>
+          <Text className="text-neutral-600">12:00pm</Text>
         </View>
       </View>
     </TouchableOpacity>

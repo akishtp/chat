@@ -22,10 +22,10 @@ export default function HomeHeader() {
   const handleProfile = () => {};
   return (
     <View
-      className="bg-slate-950 items-center flex-row justify-between"
+      className="items-center flex-row justify-between"
       style={{ paddingHorizontal: wp(4), height: hp(7) }}
     >
-      <Text style={{ fontSize: hp(3.6) }} className="text-white font-bold">
+      <Text style={{ fontSize: hp(3.6) }} className=" font-bold">
         Chat
       </Text>
       <Menu>

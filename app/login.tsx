@@ -47,27 +47,27 @@ export default function Login() {
           className="flex-1 gap-y-1"
           style={{ paddingHorizontal: hp(2), paddingVertical: wp(4) }}
         >
-          <Text style={{ fontSize: hp(4) }} className="text-white">
+          <Text style={{ fontSize: hp(4) }} className="">
             Login
           </Text>
           <View className="flex-1"></View>
           <View className="gap-y-2">
-            <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
+            <View className="h-14 bg-neutral-300 rounded-xl items-center px-4 flex-row">
               <Octicons name="mail" size={hp(2.7)} color="#a3a3a3" />
               <TextInput
                 onChangeText={(value) => (emailRef.current = value)}
                 style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-200 ml-4"
+                className="flex-1 font-semibold text-neutral-900 ml-4"
                 placeholder="mail"
                 placeholderTextColor="#a3a3a3"
               />
             </View>
-            <View className="h-14 bg-neutral-900 rounded-xl items-center px-4 flex-row">
+            <View className="h-14 bg-neutral-300 rounded-xl items-center px-4 flex-row">
               <Octicons name="lock" size={hp(2.7)} color="#a3a3a3" />
               <TextInput
                 onChangeText={(value) => (passwordRef.current = value)}
                 style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-200 ml-4"
+                className="flex-1 font-semibold text-neutral-900 ml-4"
                 placeholder="password"
                 placeholderTextColor="#a3a3a3"
                 secureTextEntry
@@ -75,17 +75,17 @@ export default function Login() {
             </View>
             <View>
               {loading ? (
-                <View className="items-center h-14 bg-slate-800 rounded-lg justify-center">
+                <View className="items-center h-14 rounded-lg justify-center">
                   <Loading size={hp(8)} />
                 </View>
               ) : (
                 <TouchableOpacity
-                  className="bg-slate-900 h-14 rounded-lg justify-center"
+                  className="bg-slate-800 h-14 rounded-lg justify-center"
                   onPress={handleLogin}
                 >
                   <Text
                     style={{ fontSize: hp(2.7) }}
-                    className="text-white text-center font-medium"
+                    className=" text-center font-medium"
                   >
                     Login
                   </Text>
@@ -98,20 +98,20 @@ export default function Login() {
                 onPress={() => router.push("signup")}
               >
                 <Text
-                  className="text-right text-neutral-300 font-bold"
+                  className="text-right text-neutral-600 font-bold"
                   style={{ fontSize: hp(1.8) }}
                 >
                   New Here?{" "}
                 </Text>
                 <Text
-                  className="text-right text-slate-400 font-bold"
+                  className="text-right text-slate-800 font-bold"
                   style={{ fontSize: hp(1.8) }}
                 >
                   Signup
                 </Text>
               </Pressable>
               <Text
-                className="text-right text-neutral-300 font-bold"
+                className="text-right text-neutral-600 font-bold"
                 style={{ fontSize: hp(1.8) }}
               >
                 Forgot password?

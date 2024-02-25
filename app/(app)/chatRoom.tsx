@@ -9,7 +9,7 @@ export default function ChatRoom() {
 
   return (
     <View>
-      <ChatRoomHeader />
+      <ChatRoomHeader user={item} router={router} />
     </View>
   );
 }
