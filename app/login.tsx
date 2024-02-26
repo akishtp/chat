@@ -36,13 +36,13 @@ export default function Login() {
     let response = await login(emailRef.current, passwordRef.current);
     setLoading(false);
     if (!response.success) {
-      Alert.alert("Signup", response.message);
+      Alert.alert("Login", response.message);
     }
   };
   return (
     <SafeAreaView className="flex-1">
       <View className="flex-1">
-        <StatusBar style="light" />
+        <StatusBar style="dark" />
         <View
           className="flex-1 gap-y-1"
           style={{ paddingHorizontal: hp(2), paddingVertical: wp(4) }}

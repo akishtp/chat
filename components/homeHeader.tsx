@@ -9,9 +9,8 @@ import { useAuth } from "../context/authContext";
 import { Menu, MenuOptions, MenuTrigger } from "react-native-popup-menu";
 import { Octicons } from "@expo/vector-icons";
 import HeaderMenu from "./headerMenu";
-
-const blurhash =
-  "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
+import { StatusBar } from "expo-status-bar";
+import { blurhash } from "../utils/commons";
 
 export default function HomeHeader() {
   const { user, logout } = useAuth();
@@ -25,6 +24,8 @@ export default function HomeHeader() {
       className="items-center flex-row justify-between"
       style={{ paddingHorizontal: wp(4), height: hp(7) }}
     >
+      <StatusBar style="dark" />
+
       <Text style={{ fontSize: hp(3.6) }} className=" font-bold">
         Chat
       </Text>

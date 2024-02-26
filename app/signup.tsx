@@ -57,7 +57,7 @@ export default function Signup() {
   return (
     <SafeAreaView className="flex-1">
       <View className="flex-1">
-        <StatusBar style="light" />
+        <StatusBar style="dark" />
         <View
           className="flex-1 gap-y-1"
           style={{ paddingHorizontal: hp(2), paddingVertical: wp(4) }}
