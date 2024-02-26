@@ -47,9 +47,7 @@ export default function Login() {
           className="flex-1 gap-y-1"
           style={{ paddingHorizontal: hp(2), paddingVertical: wp(4) }}
         >
-          <Text style={{ fontSize: hp(4) }} className="">
-            Login
-          </Text>
+          <Text style={{ fontSize: hp(4) }}>Login</Text>
           <View className="flex-1"></View>
           <View className="gap-y-2">
             <View className="h-14 bg-neutral-300 rounded-xl items-center px-4 flex-row">
@@ -85,7 +83,7 @@ export default function Login() {
                 >
                   <Text
                     style={{ fontSize: hp(2.7) }}
-                    className=" text-center font-medium"
+                    className=" text-center font-medium text-white"
                   >
                     Login
                   </Text>

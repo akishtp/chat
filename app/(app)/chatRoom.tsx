@@ -89,7 +89,7 @@ export default function ChatRoom() {
       <ChatRoomHeader user={item} router={router} />
       <View className="flex-1">
         <View className="flex-1">
-          <MessageList messages={messages} />
+          <MessageList messages={messages} currentUser={user} />
         </View>
         <View
           className="w-full bg-white flex-row justify-between items-center"

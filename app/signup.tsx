@@ -120,7 +120,7 @@ export default function Signup() {
                 >
                   <Text
                     style={{ fontSize: hp(2.7) }}
-                    className=" text-center font-medium"
+                    className=" text-center font-medium text-white"
                   >
                     Signup
                   </Text>
