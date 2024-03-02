@@ -36,7 +36,7 @@ export default function ChatRoom() {
     let roomId = getRoomId(user.uid, item.uid);
     const docRef = doc(db, "rooms", roomId);
     const messagesRef = collection(docRef, "messages");
-    const q = query(messagesRef, orderBy("createdAt", "asc"));
+    const q = query(messagesRef, orderBy("createdAt", "desc"));
 
     let unsub = onSnapshot(q, (snapshot) => {
       let allMessages = snapshot.docs.map((doc) => {
@@ -68,27 +68,23 @@ export default function ChatRoom() {
       textRef.current = "";
       if (inputRef) inputRef.current.clear();
       const newMessage = await addDoc(messagesRef, {
-        userId: user.uid,
+        uid: user.uid,
         text: message,
         profileUrl: user.profileUrl,
         senderName: user.username,
         createdAt: Timestamp.fromDate(new Date()),
       });
-
-      console.log("message", newMessage);
     } catch (error) {
       Alert.alert("message", error.message);
     }
   };
-
-  console.log("messages", messages);
 
   return (
     <View className="flex-1">
       <StatusBar style="dark" />
       <ChatRoomHeader user={item} router={router} />
       <View className="flex-1">
-        <View className="flex-1">
+        <View className="flex-1 flex-row items-end">
           <MessageList messages={messages} currentUser={user} />
         </View>
         <View

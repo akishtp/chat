@@ -6,25 +6,27 @@ import {
 } from "react-native-responsive-screen";
 
 export default function MessageItem({ message, currentUser }) {
-  if (currentUser.userId === message.uid) {
+  if (currentUser.uid === message.uid) {
     return (
-      <View className="flex-row justify-end mb-3 mr-3">
-        <View style={{ width: wp(80) }}>
-          <View className="flex self-end p-3 rounded-2xl bg-white border border-neutral-200">
-            <Text style={{ fontSize: hp(1.9) }}>{message?.text}</Text>
-          </View>
-        </View>
-      </View>
-    );
-  } else {
-    return (
-      <View className="flex-row justify-start mb-3 mr-3">
-        <View style={{ width: wp(80) }}>
-          <View className="flex self-end p-3 rounded-2xl bg-white border border-neutral-200">
-            <Text style={{ fontSize: hp(1.9) }}>{message?.text}</Text>
-          </View>
-        </View>
+      <View className="justify-end flex-row my-0.5">
+        <Text
+          className="bg-slate-200 flex-row items-center py-2 px-4 rounded-xl"
+          style={{ fontSize: hp(2) }}
+        >
+          {message.text}
+        </Text>
       </View>
     );
   }
+
+  return (
+    <View className="justify-start flex-row my-0.5">
+      <Text
+        className="bg-slate-400 flex-row items-center py-2 px-4 rounded-xl"
+        style={{ fontSize: hp(2) }}
+      >
+        {message.text}
+      </Text>
+    </View>
+  );
 }
