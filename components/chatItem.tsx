@@ -27,17 +27,10 @@ export default function ChatItem({ item, router, noBorder }) {
         placeholder={blurhash}
         transition={500}
       />
-      <View className="flex-1 justify-center gap-y-2">
-        <View className="flex-row justify-between items-center">
-          <Text className="font-bold text-black" style={{ fontSize: hp(2) }}>
-            {item.username}
-          </Text>
-          <View className="bg-slate-800 rounded-full h-2.5 w-2.5" />
-        </View>
-        <View className="flex-row justify-between">
-          <Text className="text-neutral-600">Last Message</Text>
-          <Text className="text-neutral-600">12:00pm</Text>
-        </View>
+      <View className="flex-1 justify-center">
+        <Text className="font-bold text-black" style={{ fontSize: hp(2) }}>
+          {item.username}
+        </Text>
       </View>
     </TouchableOpacity>
   );
